@@ -1,0 +1,30 @@
+<ion-content [fullscreen]="true">
+  <form [formGroup]="loginForm">
+  <ion-card>
+
+
+    <ion-card-content>
+      <ion-item>
+        <ion-input formControlName="email" placeholder="email"></ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-input formControlName="password" placeholder="password" type="password"></ion-input>
+      </ion-item>
+
+      <ion-button (click)="login()">login</ion-button>
+
+
+
+    </ion-card-content>
+
+
+  </ion-card>
+</form>
+</ion-content>
+
+
+
+
+

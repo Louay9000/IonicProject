@@ -1,0 +1,58 @@
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Get strt</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="header">
+    <ion-title class="title" size="large">Get Started</ion-title>
+    <p class="subtitle">By creating an account</p>
+  </div>
+  <form [formGroup]="regForm" novalidate>
+    <div class="ion-padding">
+      <ion-item >
+        <ion-input class="input" formControlName="fullname" placeholder="Fullname" />
+        <ion-icon slot="end" name="person-outline"></ion-icon>
+      </ion-item>
+      <div style="padding-top: -26px;padding-bottom: 16px;"
+        *ngIf="this.regForm.controls?.['fullname'].touched && this.regForm.controls?.['fullname'].invalid">
+        <ion-text *ngIf="errorControl.fullname.errors?.required" class="errorInput" color="danger">Fullname is
+          required.</ion-text>
+      </div>
+      <ion-item>
+        <ion-input class="input" formControlName="email" placeholder="email" />
+        <ion-icon slot="end" name="mail-outline"></ion-icon>
+      </ion-item>
+      <div style="padding-top: -26px;padding-bottom: 16px;"
+        *ngIf="this.regForm.controls?.['email'].touched && this.regForm.controls?.['email'].invalid">
+        <ion-text *ngIf="errorControl.email.errors?.required" class="errorInput" color="danger">Email is
+          required.</ion-text>
+        <ion-text *ngIf="errorControl.email.errors?.pattern" class="errorInput" color="danger">Please provide valid
+          email.</ion-text>
+      </div>
+      <ion-item>
+        <ion-input class="input" type="password" formControlName="password" placeholder="password" />
+        <ion-icon slot="end" name="lock-closed-outline"></ion-icon>
+      </ion-item>
+      <div style="padding-top: -26px;padding-bottom: 16px;"
+        *ngIf="this.regForm.controls?.['password'].touched && this.regForm.controls?.['password'].invalid">
+        <ion-text *ngIf="errorControl.password.errors?.required" class="errorInput" color="danger">Password is
+          required.</ion-text>
+        <ion-text *ngIf="errorControl.password.errors?.['minlength']" class="errorInput" color="danger">
+          Password must be more than 6 length containing
+
+        </ion-text>
+      </div>
+    </div>
+
+
+
+  </form>
+  <ion-fab *ngIf="regForm .valid" vertical="bottom" horizontal="end" style="margin-bottom: 30px;">
+    <ion-button (click)="signUp()">
+      <ion-icon name="chevron-forward"></ion-icon>
+    </ion-button>
+  </ion-fab>
+</ion-content>
